@@ -138,11 +138,11 @@ sphactor_actor_destroy (sphactor_actor_t **self_p)
         zsock_destroy(&self->pub);
         zsock_destroy(&self->sub);
         // iterate subs list and destroy
-        zsock_t *itr = (zock_t *)zhash_first( self->subs );
+        zsock_t *itr = (zsock_t *)zhash_first( self->subs );
         while (itr)
         {
             zsock_destroy( &itr );
-            itr = zhash_next( self->subs );
+            itr = (zsock_t *)zhash_next( self->subs );
         }
         zhash_destroy(&self->subs);
 
