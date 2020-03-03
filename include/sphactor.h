@@ -21,7 +21,11 @@ typedef _sphactor_event_t sphactor_event_t;
 
 template<class SphactorClass>
 SPHACTOR_EXPORT zmsg_t *
-sphactor_member_handler(sphactor_event_t *ev, void *args)
+sphactor_member_handler(sphactor_event_t *ev, void *args);
+
+template<class SphactorClass>
+zmsg_t *
+sphactor_member_handler(sphactor_event_t *ev, void *args);
 {
     assert(args);
     SphactorClass *self = static_cast<SphactorClass*>(args);
@@ -30,7 +34,11 @@ sphactor_member_handler(sphactor_event_t *ev, void *args)
 
 template<class SphactorClass>
 SPHACTOR_EXPORT sphactor_t *
-sphactor_new ( SphactorClass *inst, const char *name=nullptr, zuuid_t *uuid=nullptr )
+sphactor_new ( SphactorClass *inst, const char *name=nullptr, zuuid_t *uuid=nullptr );
+
+template<class SphactorClass>
+sphactor_t *
+sphactor_new ( SphactorClass *inst, const char *name=nullptr, zuuid_t *uuid=nullptr );
 {
     assert(inst);
     return sphactor_new(sphactor_member_handler<SphactorClass>, inst, name, uuid);
@@ -39,6 +47,10 @@ sphactor_new ( SphactorClass *inst, const char *name=nullptr, zuuid_t *uuid=null
 // void pointer to a costructor
 template<class SphactorClass>
 SPHACTOR_EXPORT void *
+sphactoractor_constructor();
+
+template<class SphactorClass>
+void *
 sphactoractor_constructor()
 {
     return new SphactorClass;
