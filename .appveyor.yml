@@ -55,8 +55,8 @@ install:
 # czmq
   - cmd: set CZMQ_SOURCEDIR=C:\projects\czmq
   - cmd: set CZMQ_BUILDDIR=C:\projects\czmq\build
-  - cmd: set CZMQ_INCLUDE_DIR="%LIBZMQ_SOURCEDIR%\include"
-  - cmd: set CZMQ_LIBRARY_DIR="%LIBZMQ_BUILDDIR%\lib\%Configuration%"
+  - cmd: set CZMQ_INCLUDE_DIR="%CZMQ_SOURCEDIR%\include"
+  - cmd: set CZMQ_LIBRARY_DIR="%CZMQ_BUILDDIR%\%Configuration%"
   - if not exist C:\projects\czmq (
       git clone --depth 1 --quiet https://github.com/zeromq/czmq.git "%CZMQ_SOURCEDIR%" &&
       md "%CZMQ_BUILDDIR%" &&
