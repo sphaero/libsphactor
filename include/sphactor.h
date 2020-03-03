@@ -20,7 +20,7 @@ struct _sphactor_event_t;
 typedef _sphactor_event_t sphactor_event_t;
 
 template<class SphactorClass>
-SPHACTOR_EXPORT static zmsg_t *
+SPHACTOR_EXPORT zmsg_t *
 sphactor_member_handler(sphactor_event_t *ev, void *args)
 {
     assert(args);
