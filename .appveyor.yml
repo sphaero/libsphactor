@@ -66,8 +66,8 @@ install:
       cd "%CZMQ_BUILDDIR%" )
   - cmd: cmake -D CMAKE_INCLUDE_PATH="%ZEROMQ_INCLUDE_DIR%" -D CMAKE_LIBRARY_PATH="%ZEROMQ_LIBRARY_DIR%" -D CMAKE_CXX_FLAGS_RELEASE="/MT" -D CMAKE_CXX_FLAGS_DEBUG="/MTd" -G "%CMAKE_GENERATOR%" %CZMQ_SOURCEDIR%
   - cmd: msbuild /v:minimal /maxcpucount:%NUMBER_OF_PROCESSORS% /p:Configuration=%Configuration% czmq.vcxproj
-  - cmd: dir C:\projects\czmq\build\lib
-  - ps: Copy-Item "C:\projects\czmq\build\lib\${env:Configuration}\czmq-*lib" -Destination "C:\projects\czmq\build\lib\${env:Configuration}\czmq.lib"
+  - cmd: tree %CZMQ_BUILDDIR%
+  #- ps: Copy-Item "C:\projects\czmq\build\lib\${env:Configuration}\czmq-*lib" -Destination "C:\projects\czmq\build\lib\${env:Configuration}\czmq.lib"
   
 clone_folder: C:\projects\libsphactor
 
@@ -87,7 +87,7 @@ after_build:
   - cmd: tree /F %CZMQ_BUILDDIR%
   - cmd: cd "%SPH_BUILDDIR%\%Configuration%"
   - cmd: copy "%LIBZMQ_BUILDDIR%\bin\%Configuration%\libzmq-*dll" .
-  - cmd: copy "%CZMQ_BUILDDIR%\bin\%Configuration%\czmq-*dll" .
+  - cmd: copy "%CZMQ_BUILDDIR%\%Configuration%\libczmq*dll" .
 #  - cmd: 7z a -y -bd -mx=9 czmq.zip zmakecert.exe czmq_selftest.exe libczmq.dll libzmq-*.dll test_randof.exe
 #  - ps: Push-AppveyorArtifact "czmq.zip" -Filename "czmq-${env:Platform}-${env:Configuration}.zip"
   - cmd: cd "%SPH_BUILDDIR%"
