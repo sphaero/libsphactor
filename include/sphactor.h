@@ -25,7 +25,7 @@ sphactor_member_handler(sphactor_event_t *ev, void *args);
 
 template<class SphactorClass>
 zmsg_t *
-sphactor_member_handler(sphactor_event_t *ev, void *args);
+sphactor_member_handler(sphactor_event_t *ev, void *args)
 {
     assert(args);
     SphactorClass *self = static_cast<SphactorClass*>(args);
@@ -38,7 +38,7 @@ sphactor_new ( SphactorClass *inst, const char *name=nullptr, zuuid_t *uuid=null
 
 template<class SphactorClass>
 sphactor_t *
-sphactor_new ( SphactorClass *inst, const char *name=nullptr, zuuid_t *uuid=nullptr );
+sphactor_new ( SphactorClass *inst, const char *name=nullptr, zuuid_t *uuid=nullptr )
 {
     assert(inst);
     return sphactor_new(sphactor_member_handler<SphactorClass>, inst, name, uuid);
