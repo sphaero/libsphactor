@@ -14,6 +14,7 @@
 #ifndef SPHACTOR_H_INCLUDED
 #define SPHACTOR_H_INCLUDED
 
+#pragma message "The __cpluplus value: " __cplusplus
 #ifdef __cplusplus
 //  forward decl
 struct _sphactor_event_t;
