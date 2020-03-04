@@ -4,7 +4,7 @@ clone_depth: 1
 
 skip_tags: true
 
-os: Visual Studio 2015
+os: Visual Studio 2017
 
 environment:
   CMAKE_GENERATOR: "Visual Studio 14 2015"
