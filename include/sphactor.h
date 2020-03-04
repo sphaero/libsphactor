@@ -17,7 +17,7 @@
 #pragma message ( "The __cpluplus value: " _CRT_STRINGIZE(__cplusplus) )
 #ifdef __cplusplus
 //  forward decl
-struct _sphactor_event_t;
+/*struct _sphactor_event_t;
 typedef _sphactor_event_t sphactor_event_t;
 
 template<class SphactorClass>
@@ -56,7 +56,7 @@ sphactoractor_constructor()
 {
     return new SphactorClass;
 }
-
+*/
 extern "C" {
 #endif
 
