@@ -531,7 +531,7 @@ sphactor_test (bool verbose)
      *  In practice the number is 252
      *
      */
-    long start = zclock_usecs();
+    int64_t start = zclock_usecs();
     sphactor_t *prev = NULL;
     zlist_t *spawned_actors = zlist_new();
     
@@ -562,7 +562,7 @@ sphactor_test (bool verbose)
         prev = spawn;
         zclock_sleep(10);
     }
-    long end = zclock_usecs();
+    int64_t end = zclock_usecs();
     zsys_info("%i Actors spawned in %d microseconds (%.6f ms)", limit, end-start, (end-start)/1000.f);
     zclock_sleep(2000);
     zstr_sendm(prev->actor, "SEND");
