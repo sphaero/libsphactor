@@ -428,6 +428,7 @@ void
 sphactor_test (bool verbose)
 {
     printf (" * sphactor: ");
+    zsys_init();
 
     // register unregister test
     actors_reg = zhash_new();
