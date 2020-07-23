@@ -611,6 +611,7 @@ void
 sphactor_actor_test (bool verbose)
 {
     printf (" * sphactor_actor: ");
+    zsys_init();
     //  @selftest
     //  Simple create/destroy test
     sphactor_shim_t consumer = { &sph_actor_consumer, NULL };
